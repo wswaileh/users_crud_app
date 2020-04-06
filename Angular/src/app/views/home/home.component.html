@@ -1,0 +1,28 @@
+<h1>Users</h1>
+<div *ngFor="let user of users; let i = index">
+    <div *ngIf="i % 2 == 0" class="row">
+        <div class="col-sm-6">
+            <div class="card" *ngIf="i + 1 <= users.length">
+                <div class="card-body">
+                    <h5 class="card-title">{{users[i].name}}</h5>
+                    <p class="card-text">{{users[i].userName}}</p>
+                    <a href="mailto:{{users[i].email}}" class="btn btn-link">Send Email</a>
+                    <button class="btn btn-primary" [routerLink]="['/update/',users[i].id]">Edit User</button>
+                    <button class="btn btn-danger" (click)='deleteUser(users[i].id)'>Delete User</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" *ngIf="i + 1 < users.length">
+                <div class="card-body">
+                    <h5 class="card-title">{{users[i+1].name}}</h5>
+                    <p class="card-text">{{users[i+1].userName}}</p>
+                    <a href="mailto:{{users[i+1].email}}" class="btn btn-link">Send Email</a>
+                    <button class="btn btn-primary" [routerLink]="['/update/',users[i+1].id]" >Edit User</button>
+                    <button class="btn btn-danger" (click)='deleteUser(users[i+1].id)'>Delete User</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p *ngIf="!users">No Users!</p>

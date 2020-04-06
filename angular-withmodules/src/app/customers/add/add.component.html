@@ -1,0 +1,18 @@
+<h1>Add User</h1>
+<form #addPostForm="ngForm" method="POST" (ngSubmit)="onSubmit(addPostForm)">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" placeholder="Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" [(ngModel)]="userName" name="userName" id="userName" placeholder="Username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" placeholder="Email">
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+</form>
